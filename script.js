@@ -29,6 +29,7 @@ let liArray = [
 
 let userInput = document.querySelector(".userInput")
 let resultsUl = document.querySelector(".resultsBox")
+let resultLi = document.querySelectorAll('li')
 let htmlLi
 let resultArray
 
@@ -54,4 +55,12 @@ userInput.addEventListener("keyup", (e) => {
     }
     madeLi(resultArray)
   }
+  
+  for (let i = 0; i < resultsUl.children.length; i++) {
+   resultsUl.children[i].addEventListener('click',()=>{
+    
+    userInput.value = resultsUl.children[i].innerText
+   })
+  }
 })
+

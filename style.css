@@ -46,6 +46,7 @@ ul {
     margin-top: -5px;
     background-color: aliceblue; 
     visibility: hidden;
+    border-top: 1px solid gray;
 }
 
 .visibility{
