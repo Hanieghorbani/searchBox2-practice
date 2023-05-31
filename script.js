@@ -29,38 +29,38 @@ let liArray = [
 
 let userInput = document.querySelector(".userInput")
 let resultsUl = document.querySelector(".resultsBox")
-let resultLi = document.querySelectorAll('li')
 let htmlLi
 let resultArray
 
-function madeLi(list) {
-  list.forEach((result) => {
-    htmlLi = `<li class="resultLi">${result}</li>`
-    resultsUl.insertAdjacentHTML("beforeend", htmlLi)
-  })
+function madeLi(result) {
+  htmlLi = `<li class="resultLi">${result}</li>`
+  resultsUl.insertAdjacentHTML("beforeend", htmlLi)
 }
 
 userInput.addEventListener("keyup", (e) => {
-  if (userInput.value.length == 0) {
+  if (!userInput.value.length) {
     resultsUl.classList.remove("visibility")
   } else {
     resultsUl.classList.add("visibility")
     resultsUl.innerHTML = ""
     resultArray = liArray.filter((item) => {
       return item.toUpperCase().includes(userInput.value.toUpperCase())
+      //return item.toUpperCase().startsWith(userInput.value.toUpperCase())
     })
-   
-    if (resultArray.length == 0) {
-      resultsUl.classList.remove('visibility')
+    resultArray.forEach((result) => {
+      madeLi(result)
+    })
+
+    if (!resultArray.length) {
+      madeLi(userInput.value)
     }
-    madeLi(resultArray)
   }
-  
+
   for (let i = 0; i < resultsUl.children.length; i++) {
-   resultsUl.children[i].addEventListener('click',()=>{
-    
-    userInput.value = resultsUl.children[i].innerText
-   })
+    resultsUl.children[i].addEventListener("click", () => {
+      userInput.value = resultsUl.children[i].innerText
+      resultsUl.innerHTML = ""
+      madeLi(userInput.value)
+    })
   }
 })
-

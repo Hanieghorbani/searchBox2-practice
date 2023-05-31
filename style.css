@@ -9,13 +9,13 @@ body {
 
 .container {
     border-radius: 7px;
+    
 }
 
 .inputBox {
     background-color: aliceblue;
     border-bottom: 1px solid rgb(186, 184, 184);
     border-radius: 7px;
-   
 }
 
 .userInput {
@@ -26,7 +26,7 @@ body {
     padding: 15px;
     border: none;
     background-color: transparent;
-    color: rgb(54, 54, 54);
+    color: rgb(54, 54, 54); 
 }
 
 .userInput::placeholder {
@@ -37,11 +37,12 @@ body {
     color: rgb(61, 103, 182);
     font-size: 19px;
     margin-right: 15px;
+    cursor: pointer;
 }
 
 ul {
-    height: 200px;
-    overflow: auto;
+    max-height: 200px;
+    overflow-y: auto;
     padding-left: -20px;
     margin-top: -5px;
     background-color: aliceblue; 
